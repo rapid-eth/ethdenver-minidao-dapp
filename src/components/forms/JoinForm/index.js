@@ -10,7 +10,8 @@ class JoinForm extends Component {
         super(props);
         this.state = {
             isMember: false,
-            zeroBalance: false
+            zeroBalance: false,
+            metaTxCreated: false
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -90,8 +91,10 @@ class JoinForm extends Component {
             let x = await localDappFunderContract.interface.functions.executeMetaTransaction.encode([abiMTX, sig])
             console.log(x)
 
-            let data2 = await axios.post('localhost:7545', {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":[x],"id":1})
-            console.log(data2)
+            this.setState({ metaTxCreated: true, signature: sig, raw: abiMTX });
+            
+            // let data2 = await axios.post('localhost:7545', {"jsonrpc":"2.0","method":"eth_sendRawTransaction","params":[x],"id":1})
+            // console.log(data2)
         } catch (err) {
             console.log(err)
             alert(err.toString())
@@ -106,7 +109,10 @@ class JoinForm extends Component {
                 <form id={this.props.id} onSubmit={this.handleSubmit}>
                     {this.state.isMember ?  <p>>You are already a member - good job</p> :<></>}
                     <br></br>
-                    {this.state.metaTxCreated ?  <p>{this.state.metaTx}</p> :<></>}
+                    {this.state.metaTxCreated ?  
+                    <div>
+                        <p>{this.state.signature} {this.state.raw}</p> 
+                        </div>:<></>}
 
                     <input type="submit" value="Join!" disabled={this.state.isMember} />
                 </form>
