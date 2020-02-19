@@ -1,4 +1,4 @@
-.token-form {
+.info-box {
   background-color: var(--color-3);
   padding: 40px;
   border-radius: 15px 50px;
@@ -9,12 +9,12 @@
   color: black;
 }
 
-.token-form input {
+.info-box input {
   border: 2px solid var(--color-1);
   border-radius: 4px;
   font-size: 20px;
 }
 
-.token-form input[type="text"] {
+.info-box input[type="text"] {
   width: 70%;
 }

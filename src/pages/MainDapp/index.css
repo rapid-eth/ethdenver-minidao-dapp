@@ -1,27 +1,12 @@
-/* .token-box-div {
-    border-style: dashed;
-    border-color: brown;
-    margin: 10px;
-    border-radius: 15px 50px;
-} */
 
-.token-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
 .tp-title {
     align-self: center;
 }
-.token-row {
+.display-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
-
-
-
-
-.token-form:hover {
+.info-box:hover {
     box-shadow: 3px 5px 8px  #000000;
 }

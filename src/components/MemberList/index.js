@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./index.css"
-import {formatEther} from "../../web3/web3Utils"
-import TokenFormWrap from "../forms/TokenFormWrap"
+import InfoBoxWrap from "../forms/InfoBoxWrap"
 
 class MemberList extends Component {
 
@@ -13,7 +12,7 @@ class MemberList extends Component {
     };
   }
 
-  
+
 
   componentDidMount = async () => {
 
@@ -22,18 +21,17 @@ class MemberList extends Component {
 
   render() {
     if (!this.props.memberList) {
-        return (<div></div>)
-      }
+      return (<div></div>)
+    }
     return (
-        <TokenFormWrap title="MiniDAO Member List" helperText={'Member List'}>
-
-      <div className="member-list-div">
+      <InfoBoxWrap title="MiniDAO Member List" helperText={'Member List'}>
+        <div className="member-list-div">
           <ul>
-          {this.props.memberList.map((m, idx) => (<li key={idx} >{m}</li>))}
+            {this.props.memberList.map((m, idx) => (<li key={idx} >{m}</li>))}
           </ul>
-      </div>
-      </TokenFormWrap>)
-    
+        </div>
+      </InfoBoxWrap>)
+
   }
 
 

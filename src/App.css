@@ -58,37 +58,3 @@ footer a {
  color: white;
  text-decoration: none; /* no underline */
 }
-
-/* .wtf-div {
-  background-color: #478b7d;
-  height: 30px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: left;
-  font-size: 15px;
-  color: white;
-  padding-left: 20px;
-} */
-
-
-
-
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
- */
-
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
- */

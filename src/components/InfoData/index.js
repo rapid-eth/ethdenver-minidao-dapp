@@ -37,18 +37,12 @@ class InfoData extends Component {
 
 
   async loadContract() {
-    console.log("info loading contract")
     try {
 
       let memberCount = await this.getContractValue("totalMembers")
       let proposalCount = await this.getContractValue("totalProposals")
-
-      console.log("proposalCount", proposalCount)
       let owner = await this.getContractValue("owner")
-
       let memstat = await this.props.contract.members(window.ethereum.selectedAddress)
-
-      console.log("isMember",memstat)
       let isMember = "You are a member"
       if (!memstat) {
         isMember = "Not a member"
@@ -58,8 +52,10 @@ class InfoData extends Component {
       balanceBN = formatEther(balanceBN);
       let balance = balanceBN.toString()
 
+      let fundBalanceBN = await this.props.provider.getBalance(this.props.dappFunder.address)
+      let funds = fundBalanceBN.toString()
 
-      this.setState({ memberCount, proposalCount, owner, isMember, balance}, this.setLoaded)
+      this.setState({ memberCount, proposalCount, owner, isMember, balance, funds}, this.setLoaded)
 
     } catch (err) {
       console.log(err)
@@ -92,9 +88,8 @@ class InfoData extends Component {
           <label className="token-data-label">ETH Balance:</label>
           <span className="token-data-span">&nbsp;&nbsp;{this.state.balance}</span>
           <br></br>
-          <OptionalLabel label="Total Supply" value={this.state.supply} />
-          <br></br>
-          <OptionalLabel label="Cap" value={this.state.cap} />
+          <label className="token-data-label">Meta Funds Remaining:</label>
+          <span className="token-data-span">&nbsp;&nbsp;{this.state.funds} wei</span>          <br></br>
         </div>
       </div>
     );

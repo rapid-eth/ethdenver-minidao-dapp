@@ -77,10 +77,13 @@ export class MyWeb3Provider extends Component {
 
       const contracts = getContracts(networkId)
       const miniDAOJSON = contracts.miniDAO
+      const dappFunderJSON = contracts.dappFunder
+      console.log("!!!!", dappFunderJSON)
 
       let miniDAOContract = new ethers.Contract(miniDAOJSON.address, miniDAOJSON.abi, signer);
+      let dappFunderContract = new ethers.Contract(dappFunderJSON.address, dappFunderJSON.abi, signer);
 
-      this.setState({ web3, provider, signer, networkId, accounts, miniDAOContract }, this.setLoaded);
+      this.setState({ web3, provider, signer, networkId, accounts, miniDAOContract, dappFunderContract }, this.setLoaded);
 
       let logName = "MemberJoined"
       const filters = await miniDAOContract.filters[logName]()

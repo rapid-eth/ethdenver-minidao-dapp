@@ -2,9 +2,9 @@ import React from "react";
 import InfoButton from "../../InfoButton"
 import "./index.css"
 
-const TokenFormWrap = (props) => {
+const InfoBoxWrap = (props) => {
     return (
-        <div className="token-form">
+        <div className="info-box">
             <InfoButton info={props.helperText}/> 
             <h3>{props.title}</h3>
             {props.children}
@@ -12,4 +12,4 @@ const TokenFormWrap = (props) => {
     )
 };
 
-export default TokenFormWrap;
+export default InfoBoxWrap;
